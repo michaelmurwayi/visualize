@@ -10,7 +10,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class SiteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Site
-        fields = ('name', 'latitude','lomgitude')
+        fields = ('name', 'latitude','longitude')
         
 class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
