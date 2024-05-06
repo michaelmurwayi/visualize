@@ -12,5 +12,7 @@ class SiteSerializer(serializers.ModelSerializer):
         model = Site
         fields = ('name', 'latitude','lomgitude')
         
-
-    
+class DocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Document
+        fields = ('site', 'file', 'file_type', 'uploaded_by','uploaded_at')    

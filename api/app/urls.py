@@ -5,8 +5,9 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register(r'register', RegisterViewSet, basename='register')
+router.register(r'users', UsersViewSet, basename='register')
 router.register(r'sites', SiteViewSet, basename='sites')
+router.register(r'documents', DocumentViewSet, basename='documents')
 
 
 urlpatterns = [
