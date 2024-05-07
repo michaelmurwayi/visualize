@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Sidebar from '../features/sideBar/sidebar'
+import Navbar from '../features/navbar/navbar'
 
 const Site = () =>{
+    const [openNavRight, setOpenNavRight] = useState(false);
+
     return (
         <div>
-            <p>We are here</p>
+            <Navbar/>
+            <Sidebar />
         </div>
     );
 }
