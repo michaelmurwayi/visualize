@@ -58,13 +58,15 @@ function Navbar() {
               <Button className={classes.navbutton} variant="outlined">Site</Button>
             </div>
           </Hidden>
+          <Hidden only="lg">
+
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
             onClick={handleMenuOpen}
-          >
+            >
             <MenuIcon />
           </IconButton>
           <Menu
@@ -73,12 +75,13 @@ function Navbar() {
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleMenuClose}
-          >
+            >
             <MenuItem onClick={handleMenuClose}>Home</MenuItem>
             <MenuItem onClick={handleMenuClose}>About</MenuItem>
             <MenuItem onClick={handleMenuClose}>Services</MenuItem>
             <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
           </Menu>
+        </Hidden>
         </Toolbar>
       </AppBar>
     </div>
