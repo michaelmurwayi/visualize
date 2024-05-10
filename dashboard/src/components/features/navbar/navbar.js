@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appBar: {
-    backgroundColor: '#333', // Change the background color of the app bar
+    backgroundColor: 'black', // Change the background color of the app bar
   },
   title: {
     flexGrow: 1,
@@ -77,12 +77,13 @@ function Navbar() {
             onClose={handleMenuClose}
             >
             <MenuItem onClick={handleMenuClose}>Home</MenuItem>
-            <MenuItem onClick={handleMenuClose}>About</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Services</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Site</MenuItem>
+            <MenuItem onClick={handleMenuClose}>User</MenuItem>
+            <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
           </Menu>
         </Hidden>
         </Toolbar>
+        
       </AppBar>
     </div>
   );

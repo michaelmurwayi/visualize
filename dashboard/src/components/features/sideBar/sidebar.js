@@ -1,64 +1,113 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import IconButton from '@material-ui/core/IconButton';
+import { Drawer, List, ListItem, ListItemText, AppBar, Toolbar, Typography, Hidden, Avatar, Divider } from '@material-ui/core';
+import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-  menuButton: {
-    marginRight: theme.spacing(2),
+  root: {
+    display: 'flex',
+    backgroundColor: '',
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
   },
   drawer: {
-    width: 250,
+    width: drawerWidth,
+    flexShrink: 0,
   },
+  drawerPaper: {
+    width: drawerWidth,
+    backgroundColor: "black"
+  },
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
+    minHeight: '100vh',
+  },
+  userAvatar: {
+    marginBottom: theme.spacing(5),
+    marginTop: theme.spacing(5),
+    width: theme.spacing(15),
+    height: theme.spacing(15),
+  },
+  navbutton: {
+    fontSize: '10px',
+    fontWeight: 'bold',
+    color: 'white',
+    marginRight: theme.spacing(2),
+    '&:hover': {
+      backgroundColor: 'green', // Change the background color on hover
+    },
+  },
+  ListItem: {
+    fontWeight: 'bold',
+    '&:hover': {
+        color: 'green', // Change the background color on hover
+      },
+  }
 }));
 
-const Sidebar = () => {
+function Sidebar() {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   return (
-    <div>
-      <IconButton
-        edge="start"
-        className={classes.menuButton}
-        color="inherit"
-        aria-label="menu"
-        onClick={handleDrawerOpen}
-      >
-       
-      </IconButton>
+    <div className={classes.root} xs='2'>
+      <AppBar position="fixed" className={classes.appBar}>
+        
+      </AppBar>
       <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{
+            paper: classes.drawerPaper,
+        }}
         anchor="left"
-        open={open}
-        onClose={handleDrawerClose}
-        classes={{ paper: classes.drawer }}
-      >
-        <List>
-          <ListItem button>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="About" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Services" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Contact" />
-          </ListItem>
-        </List>
+        >
+      
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color:'white', fontWeight: 'bolder'}} xs='2'>
+            <Avatar alt="User Image" src="https://t4.ftcdn.net/jpg/02/62/76/57/360_F_262765707_7ipekmhWAQbIy61VGRdpWo4eHeuN6Ub3.jpg" className={classes.userAvatar} />
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color:'white', fontWeight: 'bolder'}}>
+            <Typography variant="h8" align='center' >
+                Huncho Test
+            </Typography>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'orange' }}>
+            <Typography variant="h7" align='center' color='white'>
+                Project Manager
+                
+            </Typography>
+        </div>
+         
+        <div className={classes.drawerContainer} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', fontWeight: 'bold', marginTop:"10vh" }} >
+          <List>
+            <ListItem button>
+            <ListItemText primary="Home" className='listItem'/>
+            </ListItem>
+            <ListItem button>
+            <ListItemText primary="Site" className='listItem'/>
+            </ListItem>
+            <ListItem button>
+            <ListItemText primary="User" className='listItem'/>
+            </ListItem>
+            <ListItem button>
+            <ListItemText primary="Dashboard" className='listItem'/>
+            </ListItem>
+          </List>
+        </div>
+        <Divider/>
+        <div style={{ position: 'relative', minHeight: '200px', width: '100%'}}>
+        
+        <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', marginBottom: '20px', width: '100%' }}>
+          <Facebook fontSize="large" style={{ color: '#1877f2', margin: '10px' }} />
+          <Twitter fontSize="large" style={{ color: '#1da1f2', margin: '10px' }} />
+          <Instagram fontSize="large" style={{ color: '#c32aa3', margin: '10px' }} />
+          <LinkedIn fontSize="large" style={{ color: '#0077b5', margin: '10px' }} />
+        </div>
+      </div>
       </Drawer>
     </div>
   );
