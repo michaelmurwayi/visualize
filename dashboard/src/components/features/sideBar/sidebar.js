@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Drawer, List, ListItem, ListItemText, AppBar, Toolbar, Typography, Hidden, Avatar, Divider } from '@material-ui/core';
 import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
-const drawerWidth = 240;
+const drawerWidth = 180;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    overflow: 'hidden'
   },
   drawer: {
     width: drawerWidth,
@@ -82,7 +83,7 @@ function Sidebar() {
             </Typography>
         </div>
          
-        <div className={classes.drawerContainer} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', fontWeight: 'bold', marginTop:"10vh" }} >
+        <div className={classes.drawerContainer} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white', fontWeight: 'bold', marginTop:"5vh" }} >
           <List>
             <ListItem button>
             <ListItemText primary="Home" className='listItem'/>
@@ -99,13 +100,13 @@ function Sidebar() {
           </List>
         </div>
         <Divider/>
-        <div style={{ position: 'relative', minHeight: '200px', width: '100%'}}>
+        <div style={{ position: 'relative', minHeight: '100px', width: '100%'}}>
         
         <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', marginBottom: '20px', width: '100%' }}>
-          <Facebook fontSize="large" style={{ color: '#1877f2', margin: '10px' }} />
-          <Twitter fontSize="large" style={{ color: '#1da1f2', margin: '10px' }} />
-          <Instagram fontSize="large" style={{ color: '#c32aa3', margin: '10px' }} />
-          <LinkedIn fontSize="large" style={{ color: '#0077b5', margin: '10px' }} />
+          <Facebook fontSize="small" style={{ color: '#1877f2', margin: '10px' }} />
+          <Twitter fontSize="small" style={{ color: '#1da1f2', margin: '10px' }} />
+          <Instagram fontSize="small" style={{ color: '#c32aa3', margin: '10px' }} />
+          <LinkedIn fontSize="small" style={{ color: '#0077b5', margin: '10px' }} />
         </div>
       </div>
       </Drawer>
